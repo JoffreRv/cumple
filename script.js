@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Hoy es un día especial, no solo porque se celebra su cumpleaños, y ademas tengo la suerte de conocerle, hablar con ud y sentir que a poco se vuelve alguien muy importante en mi vida, no sabe lo bonito que es conversar con ud. Que este año le traiga felicidad, amor, sueños cumplidos y muchos momentos inolvidables. FELIZ CUMPLEAÑOS',
             image: 'assets/foto3.jpg' // Asegúrate de que la ruta sea correcta
         },
+        {
+        //     date: 'AGO 2025',
+        //     title: 'I',
+        //     description: 'Una descripción detallada de este momento especial.',
+        //     image: 'assets/otra_foto.jpg'
+        // },
+            
         // ¡Añade más eventos aquí!
         // {
         //     date: 'Fecha',
