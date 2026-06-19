@@ -3,41 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños, Preciosa de mi Vida! ❤️</title>
+    <title>¡Feliz Cumpleaños, Melissa! 🌹</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>¡Feliz Cumpleaños, Mi Amor!</h1>
-        <p>Siempre sere la persona que mas le quiere, y la que estara alli para ud siempre</p>
+
+    <!-- Pétalos flotantes generados por JS -->
+    <div id="petals-container"></div>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <canvas id="stars-canvas"></canvas>
+        <div class="hero-inner">
+            <div class="hero-badge">✦ Para Melissa Moreno ✦</div>
+            <h1 class="hero-title">Feliz Cumpleaños<br><span class="name-highlight">Mi Amor</span></h1>
+            <p class="hero-sub">Siempre seré la persona que más te quiere,<br>y la que estará ahí para ti siempre.</p>
+            <div class="hero-hearts">♡ ♡ ♡</div>
+        </div>
+
+        <!-- Música -->
         <div class="music-controls">
             <audio id="background-music" loop>
                 <source src="assets/song.mp3" type="audio/mpeg">
-                Tu navegador no soporta el elemento de audio.
             </audio>
-            <button id="play-pause-btn" class="music-btn">
-                <span class="icon-play">▶️</span>
-                <span class="icon-pause" style="display: none;">⏸️</span>
+            <button id="play-pause-btn" class="music-btn" title="Música para ti">
+                <span class="icon-play">▶</span>
+                <span class="icon-pause" style="display:none">⏸</span>
             </button>
-            <span class="music-info">Música para ti</span>
+            <span class="music-info">🎵 Música para ti</span>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <span>Nuestra historia</span>
+            <div class="scroll-arrow">↓</div>
         </div>
     </header>
 
-    <main class="timeline">
-        </main>
-    
-    <section class="secret-message-section">
-        <h2>Un Último Detalle Solo Para Ti...</h2>
-        <button id="reveal-message-btn" class="action-btn">Haz Clic Aquí Para Descubrirlo</button>
-        <div id="secret-message-box" class="message-box" style="display: none;">
-            <p>¡Mi corazón, cada día a su lado es un regalo! Eres la persona más maravillosa, divertida e inspiradora que conozco. Gracias por llenar mi vida de alegría, risas y un amor inmenso. Prometo seguir construyendo con ud un sinfín de recuerdos y aventuras. ¡Feliz Cumpleaños!</p>
-            <p class="signature">- Con amor, Joffre</p>
+    <!-- ===== TIMELINE ===== -->
+    <section class="section-wrapper">
+        <div class="section-label">✦ Nuestra Historia ✦</div>
+        <h2 class="section-title">Momentos que atesoro</h2>
+        <main class="timeline" id="timeline-container"></main>
+    </section>
+
+    <!-- ===== ÁLBUM DE RECUERDOS ===== -->
+    <section class="section-wrapper gallery-section">
+        <div class="section-label">✦ Nuestros Recuerdos ✦</div>
+        <h2 class="section-title">El Álbum de Nuestra Historia</h2>
+        <p class="section-desc">Cada imagen es un capítulo de la historia más bonita que he vivido.</p>
+        <div id="gallery-container" class="gallery-container"></div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior">‹</button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente">›</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-info">
+                <span class="lightbox-event-tag" id="lightbox-event"></span>
+                <span class="lightbox-counter" id="lightbox-counter"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MENSAJE SECRETO ===== -->
+    <section class="secret-section">
+        <div class="secret-inner">
+            <div class="envelope-icon">💌</div>
+            <h2 class="secret-title">Un último detalle<br>solo para ti…</h2>
+            <button id="reveal-message-btn" class="reveal-btn">
+                <span>Abrir mi corazón</span>
+                <span class="btn-icon">→</span>
+            </button>
+            <div id="secret-message-box" class="message-box" style="display:none">
+                <div id="confetti-container"></div>
+                <div class="message-inner">
+                    <p>Mi corazón, cada día a tu lado es un regalo. Eres la persona más maravillosa, divertida e inspiradora que conozco. Gracias por llenar mi vida de alegría, risas y un amor inmenso.</p>
+                    <p>Prometo seguir construyendo contigo un sinfín de recuerdos y aventuras. No sabes lo bonito que es conversar contigo. Que este año te traiga felicidad, amor, sueños cumplidos y muchos momentos inolvidables.</p>
+                    <div class="big-text">¡Feliz Cumpleaños, Melissa! 🌹</div>
+                    <span class="signature">Con todo mi amor,<br><strong>Joffre Valarezo</strong></span>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
-        <p>Con Amor, Joffre</p>
+        <div class="footer-roses">🌹 🌹 🌹</div>
+        <p class="footer-names">Melissa &amp; Joffre</p>
+        <p class="footer-sub">Con amor eterno · 2024 – ∞</p>
     </footer>
 
     <script src="script.js"></script>
